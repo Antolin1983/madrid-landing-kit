@@ -39,8 +39,18 @@ const tags = [...new Set(allPosts.map((post) => post.data.tags).flat())];
         <div
           class="relative flex h-full overflow-x-scroll gap-2 lg:gap-4 scrollable-content snap-x snap-proximity scrollbar-hide"
         >
-          {tags.map((tag) => (
+                    {tags.map((tag) => (
             <a
+              href={`/blog/tags/${tag}`}
               title={tag}
               aria-label={tag}
-
+              class="px-3 py-1 text-sm rounded-full bg-accent-100 text-accent-900 snap-start"
+            >
+              {tag}
+            </a>
+          ))}
+        </div>
+      </div>
+    </Wrapper>
+  </section>
+</BaseLayout>
