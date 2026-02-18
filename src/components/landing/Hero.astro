@@ -1,0 +1,63 @@
+---
+// Assets
+import { Image } from "astro:assets";
+import StudyGroup from "/src/images/assets/studyGroup.jpeg";
+// import HeroTestimonials from "../testimonials/HeroTestimonials.astro";
+// Fundations
+import Text from "@/components/fundations/elements/Text.astro";
+import Button from "@/components/fundations/elements/Button.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+// Icons
+import Plus from "@/components/fundations/icons/Plus.astro";
+---
+
+<section class="relative overflow-hidden">
+  <Wrapper variant="standard" class="relative pt-48">
+  <div class="text-balance max-w-3xl mx-auto text-center">
+      <Text
+        tag="h1"
+        variant="displayXL"
+        class="text-accent-950 uppercase font-display font-medium"
+      >
+        Your childrens's first 90 days in Madrid, step by step
+      </Text>
+      
+        <Text
+  tag="p"
+  variant="textSM"
+  class="text-base-500 max-w-xl mx-auto mt-6"
+>
+  A practical checklist and local guide for students who want to avoid
+  bureaucracy mistakes, wasted time, and bad decisions when moving to Spain.
+</Text>
+
+<div class="flex justify-center mt-8">
+  
+  <Button
+    isLink={true}
+    href="#waitlist"
+    size="base"
+    variant="accent"
+  >
+    Get the free Madrid checklist
+  </Button>
+
+  <section class="pt-20">
+
+
+</div>
+
+
+          {/*<Text
+            tag="p"
+            variant="textLG"
+            class="uppercase font-display text-base-900 font-medium"
+            >discover more</Text
+          >
+            */}
+      </div>
+    </div>
+  </Wrapper>
+  {/*<HeroTestimonials />
+  */}
+</section>

@@ -1,0 +1,56 @@
+---
+// Assets
+import { Image } from "astro:assets";
+import StudyGroup from "/src/images/assets/studyGroup.jpeg";
+// Fundations
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Text from "@/components/fundations/elements/Text.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+// Sections
+import Testimonials from "@/components/testimonials/Testimonials.astro";
+---
+
+<BaseLayout>
+  <section>
+    <Wrapper variant="standard" class="pt-48 pb-24">
+      <div class="max-w-2xl mx-auto">
+        <Text
+          tag="h1"
+          variant="displayLG"
+          class="text-accent-950 uppercase font-display font-medium text-balance"
+        >
+          Build Lightning-Fast Websites with Astro
+        </Text>
+        <Text tag="p" variant="textBase" class="mt-4  text-base-500">
+          This course was created to fill a gap — a clear, structured path to
+          mastering Astro without needing to wade through scattered
+          documentation or fragmented tutorials. Whether you’re coming from
+          HTML/CSS, dabbling with React, or simply tired of bloated JavaScript
+          frameworks, this is for you.
+          <br /><br />
+          Astro focuses on simplicity and speed. That same philosophy guides the
+          way this course is taught: no fluff, just focused lessons that build on
+          each other. You’ll start with the very basics — file structure, components,
+          templating — and steadily move toward real-world development patterns.
+          <br /><br />
+          We’ll cover everything from static content and Markdown to data fetching
+          and deployment. You’ll learn how to build modular layouts, write clean
+          UI code with Tailwind, and launch fast websites without the weight of a
+          traditional SPA.
+          <br /><br />
+          The goal isn’t just to help you “use” Astro. It’s to help you think in
+          Astro — to feel confident designing, building, and shipping websites that
+          are fast, clean, and maintainable.
+        </Text>
+      </div>
+    </Wrapper>
+    <Image
+      src={StudyGroup}
+      alt="Study Group"
+      width={1400}
+      height={1400}
+      class="size-full max-h-200 object-cover grayscale"
+    />
+  </section>
+  <Testimonials />
+</BaseLayout>

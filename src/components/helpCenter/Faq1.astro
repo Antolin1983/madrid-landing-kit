@@ -1,0 +1,130 @@
+---
+// Assets
+import Kicker from "@/components/assets/Kicker.astro";
+// Fundations
+import Text from "@/components/fundations/elements/Text.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+// Icons
+import Plus from "@/components/fundations/icons/Plus.astro";
+
+const data = [
+  {
+    question: "How do you work?",
+    answer: [
+      "1. <strong>Assesment</strong>: Our team of experts will evaluate your personal circumstances and determine the most suitable procedure for you.",
+      "2. <strong>Documentation</strong>: We will help you gather all the necessary documents and information required.",
+      "3. <strong>Application</strong>: We will complete and submit your application to the relevant Spanish authorities on your behalf.",
+      "4. <strong>Follow-up</strong>: Our team will also monitor the progress of your application and provide updates on its status. We will assist with any additional requirements or questions from the authorities.",
+  ],
+  },
+  {
+    question: "Will I get an appointment immediately?",
+    answer:
+      "Due to the high demand for appointments, neither the dates nor the places of attention, depend on us but on the availability of the competent Consulate office.",
+  },
+  {
+    question: "Can you guarantee that my visa/permit will be approved?",
+    answer:
+      "While we cannot guarantee that your application will be approved, <strong> we can help you prepare your application</strong> and provide guidance on how to make it as strong as possible.",
+  },
+  {
+    question: "What will happen if my permit of stay for studies or student visa in Spain is denied?",
+    answer: [
+      "If your application is denied, <strong> you may have the right to appeal the decision </strong> or reapply with additional documentation. Our team can assist your with this process and provide guidance on how to proceed.",
+      "However, please note that we cannot guarantee a succesful outcome as <strong>the decision ultimately rests with the Spanish authorities </strong>",
+      ],
+  },
+  {
+    question: "What is NOT included in our services?",
+    answer: [
+      "1. <strong>Translation of documents or criminal record application </strong> (however, you can request this service separately).",
+      "2. <strong>The cost of administrative fees </strong>, apostilles or legalizations.",
+      ],
+  },
+  {
+    question: "What is the price and method of payment?",
+    answer: [
+      "You can see the prices we offer in our pricing section.",
+      "Payments must be made by debit or credit card.",
+      "<strong>Our prices are fair and transparent: you only pay for what you need</strong>."
+      ],
+  },
+  {
+    question: "Can I request a refund of my money?",
+    answer: [
+      "Yes, you can request cancellation of the service <strong> as long as your personal advisor has NOT started to manage your documentation </strong> to initiate the procedure.",
+      "The money will be refunded to your card in less than 14 days. See our Commercial Conditions.",
+
+      ],
+  },
+  {
+    question: "How do I contact the specialist handling my case?",
+    answer: [
+      "<strong> You will always have personalized attention and direct contact with your immigration specialist </strong>.",
+      "You can communicate at any time (as long as it is business hours and about the services you have hired) by email or telephone, whichever is more comfortable for you."
+      ],
+  },
+  {
+    question: "Is there another way to contact Madrid Landing Kit?",
+    answer: [
+      "Do you need more information? Ask us anything in our Contact form.",
+      "Write to us at <strong> info@madridlandingkit.com </strong> and we will contact you as soon as possible or simply <strong>call us </strong>"
+      
+      ],
+  },
+];
+---
+
+<section>
+  <Wrapper variant="standard" class="py-24">
+    <div class="p-8 lg:p-20 bg-accent-100">
+      <div
+        class="grid gap-4 lg:gap-8 grid-cols-1 lg:grid-cols-3 lg:items-start"
+      >
+        <div class="text-balance lg:sticky lg:top-24">
+          <Kicker text="FAQ" colorClass="text-base-900" />
+
+          <!--<Text
+            tag="h2"
+            variant="textXL"
+            class="text-accent-950 font-display font-medium mt-12"
+          >
+            Questions? We've got answers.
+            
+          </Text>
+          <Text tag="p" variant="textSM" class="mt-2 text-base-600">
+            Everything you need to know before starting—whether you're new to
+            Astro or just new to this course.
+          </Text>
+          -->
+          
+        </div>
+
+       <div
+          class=" gap-8 flex flex-col lg:col-span-2 divide-y divide-accent-200"
+        >
+          {
+            data.map(({ question, answer }) => (
+              <details class="pb-4">
+                <summary class="flex items-center justify-between font-medium cursor-pointer text-base-900 group-open:text-accent-600">
+                  {question}
+                  <Plus class="transition-transform duration-300 group-open:rotate-45  size-4" />
+                </summary>
+                <ul class="mt-3 space-y-2 text-sm text-base-600 list-none pl-0">
+
+  {Array.isArray(answer)
+  ? answer.map((line) => (
+      <li set:html={line}></li>
+    ))
+  : <li set:html={answer}></li>}
+
+</ul>
+
+              </details>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </Wrapper>
+</section>

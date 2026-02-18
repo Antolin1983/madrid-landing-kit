@@ -1,0 +1,104 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { getAllGuides } from "@/lib/sanity";
+
+// Fetch all guides
+const guides = await getAllGuides();
+---
+
+<BaseLayout
+  title="Guides"
+  description="Helpful guides for parents and students"
+>
+  <section class="guides-list">
+    <header class="guides-header">
+      <h1>Guides</h1>
+      <p>Browse all our published guides</p>
+    </header>
+
+    {guides.length === 0 && (
+      <p>No guides available yet.</p>
+    )}
+
+    <ul class="guides-grid">
+      {guides.map((guide) => (
+        <li class="guide-card">
+          <h2>
+            <a href={`/guides/${guide.slug.current}`}>
+              {guide.title}
+            </a>
+          </h2>
+
+          {guide.seoDescription && (
+            <p class="guide-excerpt">
+              {guide.seoDescription}
+            </p>
+          )}
+
+          {guide.targetAudience?.length > 0 && (
+            <p class="guide-audience">
+              For: {guide.targetAudience.join(", ")}
+            </p>
+          )}
+        </li>
+      ))}
+    </ul>
+  </section>
+</BaseLayout>
+
+<style>
+  .guides-list {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 4rem 1.5rem;
+  }
+
+  .guides-header {
+    margin-bottom: 3rem;
+  }
+
+  .guides-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .guides-grid {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 2rem;
+  }
+
+  .guide-card {
+    border: 1px solid #eee;
+    border-radius: 8px;
+    padding: 1.5rem;
+    transition: box-shadow 0.2s ease;
+  }
+
+  .guide-card:hover {
+    box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+  }
+
+  .guide-card h2 {
+    margin-bottom: 0.5rem;
+    font-size: 1.25rem;
+  }
+
+  .guide-card a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .guide-excerpt {
+    color: #555;
+    font-size: 0.95rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .guide-audience {
+    font-size: 0.8rem;
+    color: #777;
+  }
+</style>

@@ -1,0 +1,21 @@
+---
+import { getCollection } from "astro:content";
+import InfoPagesLayout from "../../layouts/InfoPagesLayout.astro";
+export async function getStaticPaths() {
+  const infoPages = await getCollection("infopages");
+
+  return infoPages
+    .filter((page) => page?.slug)
+    .map((page) => ({
+      params: { slug: page.slug },
+      props: { page },
+  }));
+
+}
+const { page } = Astro.props;
+const { Content } = await page.render();
+---
+
+<InfoPagesLayout frontmatter={page.data}>
+  <Content />
+</InfoPagesLayout>

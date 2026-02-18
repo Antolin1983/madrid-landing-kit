@@ -1,0 +1,93 @@
+---
+// Assets
+import Logo from "@/components/assets/Logo.astro";
+// Fundatons
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+
+import { getSiteSettings } from "@/lib/sanity";
+
+const settings = await getSiteSettings();
+
+const year = new Date().getFullYear();
+const footerLinks = [
+  {
+    heading: "Navigation",
+    links: [
+      { label: "Overview", href: "/system/overview" },
+      { label: "Buttons", href: "/system/buttons" },
+      { label: "Links", href: "/system/links" },
+      { label: "Colors", href: "/system/colors" },
+      { label: "Typography", href: "/system/typography" },
+    ],
+  },
+  {
+    heading: "Stay updated",
+    links: [
+      {
+        label: "License",
+        href: "https://www.lexingtonthemes.com/legal/license",
+      },
+      {
+        label: "Documentation",
+        href: "https://www.lexingtonthemes.com/documentation",
+      },
+    ],
+  },
+  {
+    heading: "Socials",
+    links: [
+      {
+        label: "@lexingtonthemes",
+        href: "https://twitter.com/lexingtonthemes",
+      },
+      {
+        label: "@Mike_Andreuzza",
+        href: "https://twitter.com/Mike_Andreuzza",
+      },
+    ],
+  },
+  {
+    heading: "More Themes",
+    links: [
+      {
+        label: "Lexington Themes",
+        href: "https://lexingtonthemes.com/",
+      },
+    ],
+  },
+];
+---
+
+<footer class="py-10 border-t">
+  <Wrapper variant="standard">
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-base-500">
+      
+      <!-- Left -->
+     <span>
+      © {year} {settings?.footerCopyright}
+    </span>
+
+
+      <!-- Right -->
+      <span class="space-x-2">
+        
+        <a href="/privacy-policy" class="underline hover:text-base-700">
+  Privacy Policy
+</a>
+ ·
+<a href="/legal-notice" class="underline hover:text-base-700">
+  Legal Notice
+</a>
+ ·
+<a href="/commercial-conditions" class="underline hover:text-base-700">
+  Commercial Conditions
+</a>
+
+      </span>
+
+    </div>
+  </Wrapper>
+</footer>
+
+
+

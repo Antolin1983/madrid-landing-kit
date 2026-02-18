@@ -1,0 +1,272 @@
+---
+// Fundations
+import Text from "@/components/fundations/elements/Text.astro";
+import Button from "@/components/fundations/elements/Button.astro";
+const pricingOptions = [
+  {
+    id: "individuals",
+    title: "Student Visa",
+    monthly: "$495",
+    //annual: "$15.00",
+    description:
+    "If you are applying from the consulate",
+    button: {
+      text: "Hire now", 
+      variant: "accent",
+    },
+    features: [
+      {
+        title: "Preparation of the application form.",
+        //text: "Get complete access to all course content from day one.",
+      },
+      {
+        title: "Review of all required documentation.",
+        //text: "Go through the lessons at your own speed, no pressure.",
+      },
+      {
+        title: "Preparation of the corresponding fee.",
+        //text: "Work with real project files and code examples you can keep.",
+      },
+      {
+        title: "Request for an appointment at the consulate.",
+        //text: "Join our community to connect, ask questions, and get feedback.",
+      },
+      {
+        title: "Contact with an immigration specialist, and unlimited advice.",
+        //text: "Earn a downloadable certificate when you finish the course.",
+      },
+      {
+        title: "Application to get your Foreigner Identity Card (TIE).",
+        //text: "Unlock short, focused modules on advanced Astro techniques.",
+      },
+      {
+        title: "Empadronamiento Certificate.",
+        //text: "Unlock short, focused modules on advanced Astro techniques.",
+      },
+      {
+        title: "Digital Certificate.",
+        //text: "Unlock short, focused modules on advanced Astro techniques.",
+      },
+      {
+        title: "Social Security Number.",
+        //text: "Unlock short, focused modules on advanced Astro techniques.",
+      },
+      {
+        title: "Individual Health Card (TSI).",
+        //text: "Unlock short, focused modules on advanced Astro techniques.",
+      },
+      {
+        title: "Online follow-up.",
+        //text: "Reach out for help via email whenever you get stuck.",
+      },
+    ],
+  },
+  {
+    id: "teams",
+    title: "Auth. of Stay for Studies",
+    monthly: "$355",
+    //annual: "$459.00",
+    description:
+    "If you are already in Spain",
+    button: {
+      text: "Hire now",
+      variant: "accent",
+    },
+    features: [
+      {
+        title: "Online submission of the application.",
+        //text: "All features from the Pro plan, plus extras for teams.",
+      },
+      {
+        title: "Review of all required documentation.",
+        //text: "Invite up to 5 teammates to learn alongside you.",
+      },
+      {
+        title: "Preparation of the application form.",
+        //text: "Monitor progress across your entire team from one view.",
+      },
+      {
+        title: "Preparing of the corresponding fee.",
+        //text: "Get faster responses with priority email support.",
+      },
+      {
+        title: "Contact with an immigration specialist, and unlimited advice.",
+        //text: "Unlock short, focused modules on advanced Astro techniques.",
+      },
+      {
+        title: "Application to get your Foreigner Identity Card (TIE).",
+        //text: "Unlock short, focused modules on advanced Astro techniques.",
+      },
+      {
+        title: "Empadronamiento Certificate.",
+        //text: "Unlock short, focused modules on advanced Astro techniques.",
+      },
+      {
+        title: "Digital Certificate.",
+        //text: "Unlock short, focused modules on advanced Astro techniques.",
+      },
+      {
+        title: "Social Security Number.",
+        //text: "Unlock short, focused modules on advanced Astro techniques.",
+      },
+      {
+        title: "Individual Health Card (TSI).",
+        //text: "Unlock short, focused modules on advanced Astro techniques.",
+      },
+      {
+        title: "Online follow-up.",
+        //text: "Get new lessons and updates before anyone else.",
+      },
+    ],
+  },
+  {
+  id: "schools",
+  title: "Student's Family Visa",
+  monthly: "$335",
+  //annual: "$899.00",
+  description: "From the consulate",
+  button: {
+    text: "Hire now",
+    variant: "accent",
+  },
+  features: [
+    { title: "Preparation and submission of the application", 
+    //text: "Centralized onboarding." 
+    },
+    { title: "All features of the student visa plan are included", 
+    //text: "One point of contact." 
+    },
+  ],
+},
+{
+  id: "enterprise",
+  title: "Extension of Stay for Studies",
+  monthly: "$285",
+  //annual: "Custom",
+  //description: "From the consulate",
+  button: {
+    text: "Hire now",
+    variant: "accent",
+  },
+  features: [
+    { title: "Preparation and submission of the application.", 
+    //text: "Tailored workflows."
+    },
+    { title: "Preparation of the application form.", 
+    //text: "Guaranteed response times." 
+    },
+    { title: "Review all required documentation.", 
+    //text: "Tailored workflows."
+    },
+    { title: "Preparation of the corresponding fee.", 
+    //text: "Guaranteed response times." 
+    },
+    { title: "Contact with an immigration specialist, and unlimited advice.", 
+    //text: "Tailored workflows."
+    },
+    { title: "Online follow-up.", 
+    //text: "Guaranteed response times." 
+    },
+  ],
+},
+{
+  id: "schools",
+  title: "Schools",
+  monthly: "$999.00",
+  annual: "$899.00",
+  description: "For institutions managing multiple students.",
+  button: {
+    text: "Contact us",
+    variant: "muted",
+  },
+  features: [
+    { title: "Student Management", text: "Centralized onboarding." },
+    { title: "Dedicated Support", text: "One point of contact." },
+  ],
+},
+{
+  id: "enterprise",
+  title: "Enterprise",
+  monthly: "Custom",
+  annual: "Custom",
+  description: "For large organizations with custom needs.",
+  button: {
+    text: "Book a call",
+    variant: "accent",
+  },
+  features: [
+    { title: "Custom Setup", text: "Tailored workflows." },
+    { title: "SLA Support", text: "Guaranteed response times." },
+  ],
+},
+
+];
+---
+
+<!-- Pricing Cards -->
+<div class="mt-4 grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
+  {pricingOptions.slice(0, 4).map((tier) => (
+    <div class="flex flex-col h-full p-4 bg-base-50">
+
+      <!-- CONTENT -->
+      <div class="flex flex-col">
+        <!-- Title -->
+        <Text
+          tag="h3"
+          variant="textLG"
+          class="font-medium text-base-900 leading-tight min-h-[2.75rem]"
+        >
+          {tier.title}
+        </Text>
+
+        <!-- Description -->
+        <div class="min-h-[1.25rem] mt-1">
+          {tier.description && (
+            <Text tag="p" variant="textSM" class="text-base-500">
+              {tier.description}
+            </Text>
+          )}
+        </div>
+
+        <!-- Price -->
+        <div class="pt-2 mt-2 border-t border-base-200">
+          <Text
+            variant="textXL"
+            class="font-display font-medium text-base-900"
+          >
+            {tier.monthly}
+          </Text>
+        </div>
+
+        <!-- Features -->
+        <ul
+          class="flex flex-col mt-8 text-sm gap-y-3 divide-y divide-base-200 text-base-500"
+          role="list"
+        >
+          {tier.features.map((feature) => (
+            <li class="pt-2.5 pb-1 text-balance">
+              <Text
+                tag="p"
+                variant="textXS"
+                class="font-medium text-base-900"
+              >
+                {feature.title}
+              </Text>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- CTA -->
+      <div class="mt-auto pt-10">
+        <Button variant="accent" size="base">
+          Hire now
+        </Button>
+        <p class="mt-2 text-xs text-base-500">
+          * One-time fee. 21% VAT must be applied
+        </p>
+      </div>
+    </div>
+  ))}
+</div>
+

@@ -1,0 +1,142 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { getAllGuides, getGuideBySlug } from "@/lib/sanity";
+
+export async function getStaticPaths() {
+  const guides = await getAllGuides();
+
+  return guides
+    .filter((guide) => guide?.slug?.current)
+    .map((guide) => ({
+      params: {
+        slug: guide.slug.current,
+      },
+    }));
+}
+
+
+const { slug } = Astro.params;
+
+const guide = await getGuideBySlug(slug);
+
+if (!guide) {
+  return Astro.redirect("/404");
+}
+---
+
+<BaseLayout
+  title={guide.seoTitle ?? guide.title}
+  description={guide.seoDescription}
+>
+  <article class="guide">
+    <header class="guide-header">
+      <h1>{guide.title}</h1>
+
+      {guide.lastUpdated && (
+        <p class="last-updated">
+          Last updated: {new Date(guide.lastUpdated).toLocaleDateString()}
+        </p>
+      )}
+    </header>
+
+<section class="guide-body">
+  {guide.body?.map((block) => {
+    if (block._type !== "block") return null;
+
+    const text = block.children?.map((child) => child.text).join("");
+
+    // LIST ITEMS
+    if (block.listItem === "bullet") {
+      return <li>{text}</li>;
+    }
+
+    if (block.listItem === "number") {
+      return <li>{text}</li>;
+    }
+
+    switch (block.style) {
+      case "h2":
+        return <h2>{text}</h2>;
+      case "h3":
+        return <h3>{text}</h3>;
+      case "blockquote":
+        return <blockquote>{text}</blockquote>;
+      default:
+        return <p>{text}</p>;
+    }
+  })}
+</section>
+<style>
+.guide {
+  max-width: 720px;
+  margin: 3rem auto;
+  padding: 0 1.5rem;
+}
+
+.guide-header {
+  margin-bottom: 2rem;
+}
+
+.guide-header h1 {
+  font-size: 2.4rem;
+  line-height: 1.2;
+  margin-bottom: 0.5rem;
+}
+
+.last-updated {
+  font-size: 0.9rem;
+  color: #777;
+}
+
+.guide-body {
+  line-height: 1.7;
+}
+
+.guide-body h2 {
+  margin-top: 2.5rem;
+  font-size: 1.75rem;
+}
+
+.guide-body h3 {
+  margin-top: 2rem;
+  font-size: 1.35rem;
+}
+
+.guide-body p {
+  margin: 1rem 0;
+}
+
+.guide-body ul {
+  margin: 1rem 0;
+  padding-left: 1.5rem;
+}
+
+.guide-body li {
+  margin-bottom: 0.5rem;
+}
+
+.guide-body blockquote {
+  border-left: 4px solid #ddd;
+  padding-left: 1rem;
+  margin: 1.5rem 0;
+  color: #555;
+
+  .guide-header h1 {
+  text-align: center;
+}
+
+.last-updated {
+  text-align: center;
+}
+
+}
+</style>
+
+
+
+        </div>
+    </section>
+  </article>
+</BaseLayout>
+
+

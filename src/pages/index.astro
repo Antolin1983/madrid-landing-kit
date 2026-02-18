@@ -1,0 +1,97 @@
+---
+import { getHome } from '../lib/sanity'
+
+const home = await getHome()
+
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { getFeaturedGuides } from "@/lib/sanity";
+
+const featuredGuides = await getFeaturedGuides(3);
+
+import Hero from "@/components/landing/Hero.astro";
+import Learn from "@/components/landing/Learn.astro";
+import Who from "@/components/landing/Who.astro";
+import Expectations from "@/components/landing/Expectations.astro";
+import Waitlist from "@/components/landing/Waitlist.astro";
+import ParentsPhotos from "@/components/landing/ParentsPhotos.astro";
+///import Stats from "@/components/landing/Stats.astro";
+///import Testimonials from "@/components/testimonials/Testimonials.astro";
+---
+
+<BaseLayout>
+  <Hero />
+
+  {/* Learn Top */}
+  <Learn data={home?.learnSection} />
+
+  <Waitlist />
+    {/* Learn Bottom */}
+  <Learn data={home?.learnSectionBottom} />
+  <Who />
+
+  <Waitlist />
+  <Expectations />
+  
+
+
+...
+<ParentsPhotos />
+<Waitlist />
+
+<!-- SEO: internal links to guides -->
+<nav aria-label="Guides" class="seo-guides">
+  <ul>
+    {featuredGuides.map((guide) => (
+      <li>
+        <a href={`/guides/${guide.slug.current}`}>
+          {guide.title}
+        </a>
+      </li>
+    ))}
+  </ul>
+</nav>
+
+
+  {/* <Stats/> */}
+  {/* <Testimonials /> */}
+
+</BaseLayout>
+
+<style>
+  .featured-guides {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 4rem 1.5rem;
+  }
+
+  .featured-guides h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .guides-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 2rem;
+  }
+
+  .guide-card h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .guide-card p {
+    color: #555;
+    font-size: 0.95rem;
+  }
+  .seo-guides {
+  position: absolute;
+  left: -9999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+</style>
+
+

@@ -1,0 +1,75 @@
+---
+import Text from "@/components/fundations/elements/Text.astro";
+import Button from "@/components/fundations/elements/Button.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+---
+
+<section id="waitlist" class="py-10">
+  <Wrapper variant="standard">
+    <div class="bg-gray-50 rounded-xl px-8 py-8">
+      <div class="max-w-xl mx-auto text-center space-y-3">
+
+
+      <Text tag="h2" variant="displaySM">
+        Get the Madrid Landing Kit
+      </Text>
+
+      <Text tag="p" variant="textSM" class="text-base-600">
+        Join the waitlist and receive the checklist + practical guides
+        to survive your first 90 days in Madrid.
+      </Text>
+
+      <form
+  action="https://formspree.io/f/XXXXXXX"
+  method="POST"
+  class="max-w-md mx-auto"
+>
+  <!-- Email -->
+  <input
+    type="email"
+    name="email"
+    required
+    placeholder="Your email address"
+    class="w-full rounded-md border px-4 py-3 text-sm mb-3"
+  />
+
+  <!-- GDPR checkbox -->
+  <div class="mb-4 flex items-start gap-2 text-left">
+    <input
+      type="checkbox"
+      id="privacy"
+      name="privacy"
+      required
+      class="mt-1"
+    />
+    <label for="privacy" class="text-xs text-base-600 leading-snug">
+      I have read and accept the
+      <a
+        href="/privacy-policy"
+        target="_blank"
+        class="underline hover:text-base-900"
+      >
+        Privacy Policy
+      </a>
+      and consent to the processing of my personal data.
+    </label>
+  </div>
+
+  <!-- CTA -->
+  <Button type="submit" variant="accent" size="base" class="w-full">
+    Get the checklist
+  </Button>
+</form>
+
+
+      <Text tag="p" variant="textXS" class="text-base-400">
+        No spam. Unsubscribe anytime.
+      </Text>
+
+    </div>
+  </Wrapper>
+</div>
+
+</section>
+
+

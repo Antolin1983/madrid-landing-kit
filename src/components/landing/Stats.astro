@@ -1,0 +1,46 @@
+---
+// Fundations
+import Text from "@/components/fundations/elements/Text.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+const data = [
+  {
+    label: "Students Enrolled",
+    value: "4,200+",
+  },
+  {
+    label: "Average Rating",
+    value: "4.9/5",
+  },
+  {
+    label: "Lessons Included",
+    value: "48",
+  },
+  {
+    label: "Hours of Content",
+    value: "12+",
+  },
+];
+---
+
+<section>
+  <Wrapper variant="standard" class="py-12">
+    <div class="grid gap-2 sm:grid-cols-3 lg:grid-cols-4">
+      {
+        data.map((item) => (
+          <div class="flex flex-col p-8 gap-32 bg-base-50">
+            <Text
+              tag="p"
+              variant="displayLG"
+              class="font-display italic uppercas text-accent-950"
+            >
+              {item.value}
+            </Text>
+            <Text tag="h3" variant="textBase" class="text-right  text-base-500">
+              {item.label}
+            </Text>
+          </div>
+        ))
+      }
+    </div>
+  </Wrapper>
+</section>

@@ -1,0 +1,88 @@
+---
+// Assets
+import Kicker from "@/components/assets/Kicker.astro";
+// Fundations
+import Text from "@/components/fundations/elements/Text.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+const data = [
+  {
+    title: "Stay In Spain",
+    subtitle: "With your visa or permit of stay for studies in Madrid, you will be able to enjoy a legal stay in the country during the period established in your permit, with the opportunity to renew it.",
+  },
+  {
+    title: "Opportunity To Work",
+    subtitle:
+      "One of its most important benefits is that you will be able to work up to 30 hours per week, gaining work experience and generating additional income to cover your expenses.",
+  },
+  {
+    title: "Bring Your Family!",
+    subtitle: "Your family can stay legally in the country while you are studiying by means of the Student's Family Visa, which allows them to enjoy this experience with you .",
+  },
+  {
+    title: "Requirements And Documentation",
+    subtitle: "We take care of all the paperwork, from medical insurance and the letter of acceptance issued by an authorized academic institution in Spain, to the Application Form Modelo EX-00, filled out and signed.",
+  },
+  {
+    title: "What Happens If Your Child Need To Extend Their Stay",
+    subtitle: "They can continue with its studies by applying for an extension of the authorization of stay for studies. The application must be submitted within 60 calendar days prior to the expiration date of the current authorization.",
+  },
+];
+---
+
+<section>
+  <Wrapper variant="standard" class="py-8">
+    <div class="p-8 lg:p-20 bg-accent-100">
+      <div
+        class="grid gap-4 lg:gap-8 grid-cols-1 lg:grid-cols-3 lg:items-start"
+      >
+        <div class="text-balance lg:sticky lg:top-24">
+          <div>
+            <Kicker
+              number="01"
+              text="Study Visa"
+              colorClass="text-base-900"
+            />
+            <Text
+              tag="h2"
+              variant="textXL"
+              class="text-accent-950 font-display font-medium mt-12"
+            >
+              The Benefits Of Studying in Spain:
+            </Text>
+          </div>
+          <Text tag="p" variant="textSM" class="mt-2 text-base-600">
+            Madrid is known for its academic excellence, hosting internationally
+            renowned educational institutions that offer innovative programs in
+            various disciplines. 
+          </Text>
+        </div>
+        <div
+          class=" gap-8 flex flex-col lg:col-span-2 divide-y divide-accent-200"
+        >
+          {
+            data.map((item) => (
+              <div>
+                <div class="relative flex flex-col justify-start  pb-8 flex flex-col gap-2 ">
+                  <Text
+                    tag="h3"
+                    variant="textLG"
+                    class=" text-base-900 font-display tracking-tight"
+                  >
+                    {item.title}
+                  </Text>
+                  <Text
+                    tag="p"
+                    variant="textSM"
+                    class=" text-base-900/60 text-balance "
+                  >
+                    {item.subtitle}
+                  </Text>
+                </div>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </Wrapper>
+</section>

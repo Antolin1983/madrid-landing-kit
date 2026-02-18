@@ -1,0 +1,66 @@
+---
+import Text from "@/components/fundations/elements/Text.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+
+const { data } = Astro.props;
+function renderMarkdown(text = "") {
+  return text
+    // links [text](url)
+    .replace(
+      /\[([^\]]+)\]\(([^)]+)\)/g,
+      '<a href="$2" class="text-accent-600 underline">$1</a>'
+    )
+    // bold **text**
+    .replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>")
+    // italic *text*
+    .replace(/\*(.*?)\*/g, "<em>$1</em>")
+    // line breaks
+    .replace(/\n/g, "<br />");
+}
+
+---
+
+<section>
+  <section class="pt-24">
+    <Wrapper variant="standard" class="pb-12">
+      <div class="max-w-2xl mx-auto">
+
+        {/* HEADING */}
+        {data?.heading && (
+          <Text
+            tag="h2"
+            variant="displaySM"
+            class="text-accent-950 uppercase font-display font-medium"
+          >
+            {data.heading}
+          </Text>
+        )}
+
+        {/* TEXTO EDITORIAL UNIFICADO */}
+{(data?.subheading || data?.body) && (
+  <div
+    class="mt-12 text-base-500 leading-relaxed"
+    set:html={renderMarkdown(
+      `${data.subheading ?? ""}\n${data.body ?? ""}`
+
+    )}
+  />
+)}
+
+
+
+        {/* CTA */}
+        {data?.ctaText && data?.ctaUrl && (
+          <a
+            href={data.ctaUrl}
+            class="inline-block mt-8 text-accent-600 underline"
+          >
+            {data.ctaText}
+          </a>
+        )}
+
+      </div>
+    </Wrapper>
+  </section>
+</section>
+
