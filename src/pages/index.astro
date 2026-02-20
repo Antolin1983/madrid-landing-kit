@@ -1,12 +1,19 @@
 ---
 import { getHome } from '../lib/sanity'
-
-const home = await getHome()
-
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import { getFeaturedGuides } from "@/lib/sanity";
 
+const home = await getHome();
 const featuredGuides = await getFeaturedGuides(3);
+
+
+
+const title =
+"Your Children’s First 90 Days in Madrid – Madrid Landing Kit"
+const description =
+"A practical checklist to avoid legal and bureaucracy mistakes when moving to Madrid with children.";
+
+
 
 import Hero from "@/components/landing/Hero.astro";
 import Learn from "@/components/landing/Learn.astro";
@@ -18,7 +25,7 @@ import ParentsPhotos from "@/components/landing/ParentsPhotos.astro";
 ///import Testimonials from "@/components/testimonials/Testimonials.astro";
 ---
 
-<BaseLayout>
+<BaseLayout title={title} description={description}>
   <Hero />
 
   {/* Learn Top */}

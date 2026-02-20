@@ -21,7 +21,14 @@ const allPosts = allPostsUnsorted.sort(
 );
 
 // Tags
-const tags = [...new Set(allPosts.map((post) => post.data.tags).flat())];
+const tags = [
+  ...new Set(
+    allPosts
+      .flatMap((post) => post.data.tags ?? [])
+      .map((tag) => String(tag))
+  ),
+];
+
 ---
 
 <BaseLayout>

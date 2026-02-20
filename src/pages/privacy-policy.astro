@@ -1,9 +1,19 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
+
+const title = "Privacy Policy – Madrid Landing Kit";
+const description =
+  "How Madrid Landing Kit collects, uses, and protects your personal data in accordance with GDPR and EU data protection laws.";
 import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+const lastUpdated = new Date().toLocaleDateString("en-GB", {
+  year: "numeric",
+  month: "long",
+  day: "numeric",
+});
 ---
 
-<BaseLayout>
+<BaseLayout title={title} description={description}>
+  <!-- contenido legal -->
   <section class="py-24">
     <Wrapper variant="standard">
       <div class="max-w-3xl mx-auto px-6">
@@ -11,6 +21,8 @@ import Wrapper from "@/components/fundations/containers/Wrapper.astro";
         <h1 class="text-3xl font-display font-medium mb-10">
           Privacy Policy
         </h1>
+        
+        <p><strong>Last updated:</strong> {lastUpdated}</p>
 
         <div class="prose prose-neutral max-w-none">
 
@@ -19,7 +31,7 @@ import Wrapper from "@/components/fundations/containers/Wrapper.astro";
           <h2>1. Introduction</h2>
           <p>
             This Privacy Policy explains how personal data is collected, used, and protected when you visit or interact with the website https://madridlandingkit.com (the “Website”).
-            This Website is part of the Madrid Landing Kit project, currently operated by an individual based in Madrid, Spain. 
+            This Website is part of the Madrid Landing Kit project, currently operated by an individual based in Madrid, Spain.</p>
           <p>A legal entity may be incorporated in the future. This Privacy Policy will be updated accordingly if that happens.
             By using this Website or submitting your personal data, you agree to the practices described in this Privacy Policy.
           </p>
@@ -37,23 +49,25 @@ import Wrapper from "@/components/fundations/containers/Wrapper.astro";
             <li>Name (if provided)</li>
             <li>Email address</li>
             <li>Message content</li>
-            Any information you choose to submit when contacting us
+            <li>Any information you choose to submit when contacting us</li>
           </ul>
 
           <h3>b) Data collected automatically</h3>
-          When you visit the Website, certain technical data may be collected automatically:
+          <p>When you visit the Website, certain technical data may be collected automatically:
+            </p>
           <ul>
             <li>IP address</li>
             <li>Browser type and version</li>
             <li>Device and operating system</li>
             <li>Date and time of access</li>
             <li>Referring URL</li>
-            This data does not allow us to identify you personally.
+            <li>This data does not allow us to identify you personally.</li>
           </ul>
 
           <h2>4. Purposes of Processing</h2>
           
-            We process personal data for the following purposes:
+            <p>We process personal data for the following purposes:
+            </p>
             <ul>
             <li>To respond to inquiries and contact requests</li>
             <li>To communicate with users who request information</li>
@@ -65,7 +79,8 @@ import Wrapper from "@/components/fundations/containers/Wrapper.astro";
 
           <h2>5. Legal Basis</h2>
 
-          The legal basis for processing your personal data is:
+          <p>The legal basis for processing your personal data is:
+          </p>
             <ul>
             <li>User consent. When you submit a form or subscribe to communications</li>
             <li>Legitimate interest. Limited to ensuring the security, functionality, and improvement of the Website.
@@ -73,8 +88,9 @@ import Wrapper from "@/components/fundations/containers/Wrapper.astro";
           </ul>
 
           <h2>6. Cookies</h2>
-
+          <p>
           This Website uses cookies for functionality, analytics, and advertising. Preferences can be managed via the cookie banner.
+          </p>
             <ul>                   
             <li>Website analytics (e.g. Google Analytics)</li>
             <li>Advertising and conversion tracking (e.g. Google Ads)</li>
@@ -84,18 +100,20 @@ import Wrapper from "@/components/fundations/containers/Wrapper.astro";
 
           <h2>7. Third-Party Services</h2>
 
-          We may use third-party service providers that process limited personal data on our behalf, such as:
+          <p>We may use third-party service providers that process limited personal data on our behalf, such as:
+          </p>
             <ul>
             <li>Website analytics providers</li>
             <li>Advertising platforms</li>
             <li>Email communication services</li>
-            These providers only process data according to our instructions and in compliance with applicable data protection laws.
-            Some providers may process data outside the European Union. Where this occurs, appropriate safeguards are applied in accordance with GDPR requirements.
+            <li>These providers only process data according to our instructions and in compliance with applicable data protection laws.
+            Some providers may process data outside the European Union. Where this occurs, appropriate safeguards are applied in accordance with GDPR requirements.</li>
             </ul>
             
             <h2>8. Data Retention</h2>
 
-          Personal data is retained only for as long as necessary to:
+          <p>Personal data is retained only for as long as necessary to:
+          </p>
             <ul>
             <li>Fulfill the purposes described in this Privacy Policy</li>
             <li>Comply with legal obligations</li>
@@ -104,9 +122,10 @@ import Wrapper from "@/components/fundations/containers/Wrapper.astro";
 
           <h2>9. Data Security</h2>
 
-          We apply reasonable technical and organizational measures to protect personal data against unauthorized access, alteration, loss, or misuse.
+           <p>We apply reasonable technical and organizational measures to protect personal data against unauthorized access, alteration, loss, or misuse.
           However, no method of transmission over the Internet or electronic storage system is completely secure. Absolute security cannot be guaranteed.
-          <ul></ul>
+          </p>
+          
 
           <h2>10. Your Rights</h2>
 
@@ -118,20 +137,20 @@ import Wrapper from "@/components/fundations/containers/Wrapper.astro";
             <li>Restriction</li>
             <li>Objection</li>
             <li>Withdrawal of consent</li>
-            To exercise your rights, please contact us using the details below.
+            <li>To exercise your rights, please contact us using the details below.</li>
           </ul>
 
           <h2>11. Contact</h2>
         
-            <ul>
+            <p>
             Email: <a href="mailto:info@madridlandingkit.com">info@madridlandingkit.com</a>
-          </ul>
+          </p>
 
          <h2>12. Changes to This Privacy Policy</h2> 
-         <ul>
+         <p>
         This Privacy Policy may be updated from time to time to reflect legal, technical, or operational changes.
         The latest version will always be available on this Website. Continued use of the Website after changes constitutes acceptance of the updated Privacy Policy.
-        </ul>
+        </p>
 
         </div>
 
@@ -139,110 +158,3 @@ import Wrapper from "@/components/fundations/containers/Wrapper.astro";
     </Wrapper>
   </section>
 </BaseLayout>
-
-
-
- <!--        Privacy Policy
-Last updated: February 2026
-1. Introduction
-This Privacy Policy explains how personal data is collected, used, and protected when you visit or interact with the website https://madridlandingkit.com (the “Website”).
-This Website is part of the Madrid Landing Kit project, currently operated by an individual based in Madrid, Spain. A legal entity may be incorporated in the future. This Privacy Policy will be updated accordingly if that happens.
-By using this Website or submitting your personal data, you agree to the practices described in this Privacy Policy.
-
-2. Applicable Law
-This Privacy Policy is governed by:
-Regulation (EU) 2016/679 (General Data Protection Regulation – “GDPR”)
-Spanish Organic Law 3/2018 on the Protection of Personal Data and Guarantee of Digital Rights
-Applicable European and Spanish ePrivacy regulations
-
-3. Personal Data We Collect
-We may collect the following personal data:
-a) Data you provide voluntarily
-Name (if provided)
-Email address
-Message content (via contact forms)
-Any information you choose to submit when contacting us
-b) Data collected automatically
-When you visit the Website, certain technical data may be collected automatically:
-IP address
-Browser type and version
-Device type and operating system
-Date and time of access
-Referring URL (if applicable)
-This data does not allow us to identify you personally.
-
-4. Purposes of Processing
-We process personal data for the following purposes:
-To respond to inquiries and contact requests
-To communicate with users who request information
-To send newsletters or updates only if explicit consent is given
-To analyze Website usage and improve content and performance
-To measure the effectiveness of advertising campaigns
-Personal data is never sold to third parties.
-
-5. Legal Basis for Processing
-The legal basis for processing your personal data is:
-Consent, when you submit a form or subscribe to communications
-Legitimate interest, limited to ensuring the security, functionality, and improvement of the Website
-You may withdraw your consent at any time.
-
-6. Cookies and Tracking Technologies
-This Website uses cookies and similar technologies for:
-Basic functionality
-Website analytics (e.g. Google Analytics)
-Advertising and conversion tracking (e.g. Google Ads)
-You can manage or withdraw your cookie preferences at any time through the cookie banner or your browser settings.
-Disabling cookies may affect the proper functioning of certain parts of the Website.
-
-7. Third-Party Services
-We may use third-party service providers that process limited personal data on our behalf, such as:
-Website analytics providers
-Advertising platforms
-Email communication services
-These providers only process data according to our instructions and in compliance with applicable data protection laws.
-Some providers may process data outside the European Union. Where this occurs, appropriate safeguards are applied in accordance with GDPR requirements.
-
-8. Data Retention
-Personal data is retained only for as long as necessary to:
-Fulfill the purposes described in this Privacy Policy
-Comply with legal obligations
-Newsletter subscription data is retained until consent is withdrawn.
-
-9. Data Security
-We apply reasonable technical and organizational measures to protect personal data against unauthorized access, alteration, loss, or misuse.
-However, no method of transmission over the Internet or electronic storage system is completely secure. Absolute security cannot be guaranteed.
-
-10. Your Rights
-Under the GDPR, you have the right to:
-Access your personal data
-Request correction of inaccurate data
-Request deletion of your data
-Restrict or object to processing
-Withdraw consent at any time
-Lodge a complaint with a data protection authority
-To exercise your rights, please contact us using the details below.
-
-11. Contact
-For any questions regarding this Privacy Policy or the processing of personal data, you may contact us at:
-Email: info@madridlandingkit.com
-
-12. Changes to This Privacy Policy
-This Privacy Policy may be updated from time to time to reflect legal, technical, or operational changes.
-The latest version will always be available on this Website. Continued use of the Website after changes constitutes acceptance of the updated Privacy Policy.
-      </p>
-
-      <p>
-        We do not sell or share your data with third parties.
-      </p>
-
-      <p>
-        You can unsubscribe at any time.
-      </p>
-
-      <p>
-        Contact: info@madridlandingkit.com
-      </p>
-    </div>
-  </section>
-</BaseLayout>
--->

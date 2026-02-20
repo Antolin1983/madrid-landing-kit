@@ -1,9 +1,18 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+
+const title = "Legal Notice – Madrid Landing Kit";
+const description =
+  "Legal information about the ownership, purpose, and conditions of use of madridlandingkit.com in accordance with Spanish law.";
+  const lastUpdated = new Date().toLocaleDateString("en-GB", {
+  year: "numeric",
+  month: "long",
+  day: "numeric",
+});
 ---
 
-<BaseLayout>
+<BaseLayout title={title} description={description}>
   <section class="py-24">
     <Wrapper variant="standard">
       
@@ -13,9 +22,9 @@ import Wrapper from "@/components/fundations/containers/Wrapper.astro";
           Legal Notice
         </h1>
 
-        <p class="text-sm text-base-600">
-          Last updated: February 2026
-        </p>
+<p class="text-sm text-base-600">
+  <strong>Last updated:</strong> {lastUpdated}
+</p>
 
         <p>
           In compliance with applicable information society and e-commerce
@@ -26,36 +35,43 @@ import Wrapper from "@/components/fundations/containers/Wrapper.astro";
           Website Owner
         </h2>
 
-        <p>
-          Website name: <strong>Madrid Landing Kit</strong><br />
-          Website URL: https://madridlandingkit.com<br />
-          <strong>Owner: </strong>Individual operator based in Madrid, Spain<br />
-          <strong>Location: </strong>Madrid, Spain Email contact: info@madridlandingkit.com<br />
-          <strong>Email contact: </strong>info@madridlandingkit.com<br />
-        </p>
+      <p>
+  Website name: <strong>Madrid Landing Kit</strong><br />
+  Website URL: https://madridlandingkit.com<br />
+  <strong>Owner:</strong> Individual operator based in Madrid, Spain<br />
+  <strong>Location:</strong> Madrid, Spain<br />
+  <strong>Email contact:</strong> info@madridlandingkit.com
+</p>
 
         <p>
           A legal entity may be incorporated in the future. This Legal Notice
           will be updated accordingly.
         </p>
 
-        <h2 class="text-xl font-medium mt-8">
-          Purpose of the Website
-        </h2>
+       <h2 class="text-xl font-medium mt-8">
+  Purpose of the Website
+</h2>
 
-        <ul>
-          Madrid Landing Kit is an informational and content-based website aimed at providing guidance, resources, and practical information related to moving, studying, or settling in Madrid, Spain.
-              </ul>
-        <ul>
-          The Website may also be used to collect contact details from users interested in receiving updates, checklists, guides, or related communications.
-              </ul>
-          The Website does not currently offer regulated legal, tax, or immigration advisory services, nor does it replace professional advice from qualified experts.
+<ul>
+  <li>
+    Madrid Landing Kit is an informational and content-based website aimed at providing guidance, resources, and practical information related to moving, studying, or settling in Madrid, Spain.
+  </li>
+  <li>
+    The Website may be used to collect contact details from users interested in receiving updates, checklists, guides, or related communications.
+  </li>
+  <li>
+    The Website does not currently offer regulated legal, tax, or immigration advisory services, nor does it replace professional advice from qualified experts.
+  </li>
+</ul>
+<h2 class="text-xl font-medium mt-8">
+  Terms of Use
+</h2>
 
-        </ul>
-
-        <h2 class="text-xl font-medium mt-8">
-          Liability
-        </h2>
+<p>
+  Access to and use of this Website implies acceptance of this Legal Notice.
+  Users agree to make appropriate use of the Website and not to engage in unlawful
+  or harmful activities.
+</p>
 
         <p>
           The Website owner is not responsible for errors or omissions in the
