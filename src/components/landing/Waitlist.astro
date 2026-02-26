@@ -19,8 +19,8 @@ import Wrapper from "@/components/fundations/containers/Wrapper.astro";
         to survive your first 90 days in Madrid.
       </Text>
 
-      <form
-  action="https://formspree.io/f/XXXXXXX"
+<form
+  id="waitlist-form"
   method="POST"
   class="max-w-md mx-auto"
 >
@@ -60,7 +60,35 @@ import Wrapper from "@/components/fundations/containers/Wrapper.astro";
     Get the checklist
   </Button>
 </form>
+<script is:inline>
+  document.addEventListener("DOMContentLoaded", () => {
+    const form = document.getElementById("waitlist-form");
+    if (!form) return;
 
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      const formData = new FormData(form);
+
+      try {
+        const res = await fetch("/api/waitlist", {
+          method: "POST",
+          body: formData,
+        });
+
+        if (res.ok) {
+          form.reset();
+          alert("Thanks! Check your inbox.");
+        } else {
+          alert("Something went wrong. Try again.");
+        }
+      } catch (err) {
+        console.error(err);
+        alert("Network error. Try again.");
+      }
+    });
+  });
+</script>
 
       <Text tag="p" variant="textXS" class="text-base-400">
         No spam. Unsubscribe anytime.
