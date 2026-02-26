@@ -21,7 +21,7 @@ import Wrapper from "@/components/fundations/containers/Wrapper.astro";
 
 <form
   id="waitlist-form"
-  method="POST"
+  onsubmit="return false;"
   class="max-w-md mx-auto"
 >
   <!-- Email -->
@@ -56,18 +56,23 @@ import Wrapper from "@/components/fundations/containers/Wrapper.astro";
   </div>
 
   <!-- CTA -->
-  <Button type="submit" variant="accent" size="base" class="w-full">
-    Get the checklist
-  </Button>
+<!-- CTA -->
+<button
+  type="button"
+  id="waitlist-submit"
+  class="w-full rounded-lg bg-green-500 py-3 text-white font-semibold"
+>
+  Get the checklist
+</button>
 </form>
 <script is:inline>
   document.addEventListener("DOMContentLoaded", () => {
     const form = document.getElementById("waitlist-form");
-    if (!form) return;
+    const button = document.getElementById("waitlist-submit");
 
-    form.addEventListener("submit", async (e) => {
-      e.preventDefault();
+    if (!form || !button) return;
 
+    button.addEventListener("click", async () => {
       const formData = new FormData(form);
 
       try {
@@ -77,14 +82,14 @@ import Wrapper from "@/components/fundations/containers/Wrapper.astro";
         });
 
         if (res.ok) {
-          form.reset();
           alert("Thanks! Check your inbox.");
+          form.reset();
         } else {
-          alert("Something went wrong. Try again.");
+          alert("Something went wrong.");
         }
       } catch (err) {
         console.error(err);
-        alert("Network error. Try again.");
+        alert("Network error.");
       }
     });
   });
