@@ -76,7 +76,7 @@ import Wrapper from "@/components/fundations/containers/Wrapper.astro";
       const formData = new FormData(form);
 
       try {
-        const res = await fetch("/api/waitlist", {
+        const res = await fetch("/api/subscribe", {
           method: "POST",
           body: formData,
         });
