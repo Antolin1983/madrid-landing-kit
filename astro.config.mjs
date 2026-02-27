@@ -11,6 +11,8 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
   },
+output: 'server',
+  
 
   markdown: {
     drafts: true,
@@ -25,7 +27,7 @@ export default defineConfig({
     drafts: true
   },
 
-  site: 'https://yourdomain.com',
+  site: 'https://madridlandingkit.com',
   integrations: [sitemap(), mdx()],
   adapter: cloudflare()
 });
