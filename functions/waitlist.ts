@@ -34,7 +34,7 @@ export const onRequestPost = async ({ request, env }: any) => {
     return new Response(
       JSON.stringify({ success: true }),
       {
-        status: 200,
+        status: 202,
         headers: { "Content-Type": "application/json" },
       }
     );
