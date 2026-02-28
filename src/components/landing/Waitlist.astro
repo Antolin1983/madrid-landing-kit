@@ -19,48 +19,56 @@ import Wrapper from "@/components/fundations/containers/Wrapper.astro";
         to survive your first 90 days in Madrid.
       </Text>
 
-      <form
-  action="https://formspree.io/f/XXXXXXX"
+<form
   method="POST"
+  action="https://e8cc70cd.sibforms.com/serve/MUIFAA6LVktcBeqZuSgfFASiqmGBIqK0sizA1aOP9d5iSsLTGyMgm-2eq_nATV8fY9n7mOpkJTCsZxk1SaeqCCpI4bqdmTITARiONtsa6G1rLvlsjMxvoCg9iIfpmOaDThFA4kF9b0AKna1Lrnw_k4xMfJ2ny_4idUIki7_RHlAbkq_u8vfPiAhUvCENe0Qw-8gkvhOHGZUJ2N6zow=="
   class="max-w-md mx-auto"
 >
-  <!-- Email -->
   <input
     type="email"
-    name="email"
+    name="EMAIL"
     required
     placeholder="Your email address"
     class="w-full rounded-md border px-4 py-3 text-sm mb-3"
   />
-
-  <!-- GDPR checkbox -->
-  <div class="mb-4 flex items-start gap-2 text-left">
-    <input
-      type="checkbox"
-      id="privacy"
-      name="privacy"
-      required
-      class="mt-1"
-    />
-    <label for="privacy" class="text-xs text-base-600 leading-snug">
-      I have read and accept the
-      <a
-        href="/privacy-policy"
-        target="_blank"
-        class="underline hover:text-base-900"
-      >
-        Privacy Policy
-      </a>
-      and consent to the processing of my personal data.
-    </label>
-  </div>
-
-  <!-- CTA -->
-  <Button type="submit" variant="accent" size="base" class="w-full">
+  <button
+    type="submit"
+    class="w-full rounded-lg bg-green-500 py-3 text-white font-semibold"
+  >
     Get the checklist
-  </Button>
+  </button>
+  <input type="hidden" name="locale" value="es" />
 </form>
 
+<script is:inline>
+  document.addEventListener("DOMContentLoaded", () => {
+    const form = document.getElementById("waitlist-form");
+    const button = document.getElementById("waitlist-submit");
+
+    if (!form || !button) return;
+
+    button.addEventListener("click", async () => {
+      const formData = new FormData(form);
+
+      try {
+        const res = await fetch("/api/subscribe", {
+          method: "POST",
+          body: formData,
+        });
+
+        if (res.ok) {
+          alert("Thanks! Check your inbox.");
+          form.reset();
+        } else {
+          alert("Something went wrong.");
+        }
+      } catch (err) {
+        console.error(err);
+        alert("Network error.");
+      }
+    });
+  });
+</script>
 
       <Text tag="p" variant="textXS" class="text-base-400">
         No spam. Unsubscribe anytime.
