@@ -1,28 +1,23 @@
 ---
 import Text from "@/components/fundations/elements/Text.astro";
-import Wrapper from "@/components/fundations/containers/Wrapper.astro";
-import Button from "@/components/fundations/elements/Button.astro";
 import Layout from "@/layouts/BaseLayout.astro";
 ---
 
 <Layout title="Thank you - Madrid Landing Kit">
-  <section class="py-20">
-    <Wrapper variant="standard">
-      <div class="max-w-xl mx-auto text-center space-y-6">
-        <Text tag="h1" variant="displaySM">
-          ¡Checklist on its way! ✈️
-        </Text>
-        
-        <Text tag="p" variant="textMD" class="text-base-600">
-          Thanks for joining. Please check your <strong>Promotions</strong> or <strong>Spam</strong> folder if you don't see the email in your main inbox within a minute.
-        </Text>
+  <section class="flex flex-col items-center justify-center min-h-[60vh] text-center px-4">
+    <Text tag="h1" variant="displaySM" class="mb-4">
+      ¡Checklist on its way! ✈️
+    </Text>
+    
+    <Text tag="p" variant="textMD" class="text-gray-600 mb-8 max-w-md">
+      Thanks for joining. Please check your <strong>Promotions</strong> or <strong>Spam</strong> folder if you don't see the email within a minute.
+    </Text>
 
-        <div class="pt-4">
-          <Button href="/" variant="primary">
-            Back to Home
-          </Button>
-        </div>
-      </div>
-    </Wrapper>
+    <a 
+      href="/" 
+      class="inline-block rounded-lg bg-green-500 px-8 py-3 text-white font-semibold hover:bg-green-600 transition-all shadow-md"
+    >
+      Back to Home
+    </a>
   </section>
 </Layout>
