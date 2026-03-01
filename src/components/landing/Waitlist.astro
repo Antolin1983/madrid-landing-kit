@@ -31,12 +31,15 @@ import Wrapper from "@/components/fundations/containers/Wrapper.astro";
     placeholder="Your email address"
     class="w-full rounded-md border px-4 py-3 text-sm mb-3"
   />
-  <button
-    type="submit"
-    class="w-full rounded-lg bg-green-500 py-3 text-white font-semibold"
-  >
-    Get the checklist
-  </button>
+<Button
+  type="button"
+  id="waitlist-submit"
+  variant="accent"
+  size="base"
+  class="w-full"
+>
+  Get the checklist
+</Button>
   <input type="hidden" name="locale" value="es" />
 </form>
 
