@@ -6,36 +6,29 @@ import Text from "@/components/fundations/elements/Text.astro";
 import Wrapper from "@/components/fundations/containers/Wrapper.astro";
 const data = [
   {
-    title: "Foreigner Identity Number (NIE)",
+    title: "Foreigner Identity Number (NIE) & TIE",
     subtitle:
-      "Tax identification number assigned to every foreigner who carries out an economic or profesional activity in Spain, regardless of their lenght of stay. Is permanent and necessary for administrative procedures.",
+      "The first legal appointment often depends on exact timing and one correct document.",
+      
   },
-  {
-    title: "TIE",
-    subtitle:
-      "The Foreigner Identity Card for Non-EU citizens. The TIE expires and requires renewal.",
-  },
+
   {
     title: "Private Health Insurance",
     subtitle:
-      "It is a requirement for the student visa and the TIE (Foreign National Identity Card).",
+      "Not every insurance policy is accepted even if it looks valid online.",
   },
   {
     title: "Empadronamiento Certificate",
     subtitle:
-      "It is a registration process in the City Hall. This is mandatory if your stay exceeds 3 or 6 months. It is necessary, for example, to apply for a TIE (Foreigners Identity Card).",
+      "One missing registration can delay the next appointment without warning.",
   },
-  {
-    title: "Deadlines",
-    subtitle:
-      "The TIE must be requested within 30 calendar days of entering Spain.",
-  },
+  
 ];
 ---
 
 <section>
   <Wrapper variant="standard" class="py-8">
-    <div class="p-8 lg:p-20 bg-blue-100">
+    <div class="p-8 lg:px-20 lg:py-12 bg-blue-100">
       <div
         class="grid gap-4 lg:gap-8 grid-cols-1 lg:grid-cols-3 lg:items-start"
       >
@@ -51,11 +44,11 @@ const data = [
               variant="textXL"
               class="text-accent-950 font-display font-medium mt-12"
             >
-              Documentation To Live In Madrid
+              Three documents families often underestimate
             </Text>
           </div>
           <Text tag="p" variant="textSM" class="mt-2 text-base-600">
-            If You Will Be Living In Madrid As A Student You Might Need This
+            <!--If You Will Be Living In Madrid As A Student You Might Need This-->
           </Text>
         </div>
         <div
