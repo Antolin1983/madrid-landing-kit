@@ -9,52 +9,18 @@ import paymentLogos from '../../images/assets/tarjetas-aceptadas.png';
 <section id="waitlist" class="py-10">
   <Wrapper variant="standard">
     <div class="bg-gray-50 rounded-xl px-8 py-8">
-      <div class="max-w-xl mx-auto text-center space-y-3">
+<div class="max-w-xl mx-auto text-center space-y-6">
+  <a 
+    href="/pricing" 
+    class="block w-full text-center bg-[#c2f3d8] hover:bg-[#a8e6c5] text-[#1a1a1a] font-bold py-4 px-10 rounded-full transition-all duration-300 text-xl shadow-md"
+  >
+    Book Your Visa Service
+  </a>
 
-<Button
-  type="submit"
-  id="waitlist-submit"
-  variant="accent"
-  size="base"
-  class="w-full"
->
-  Book Your Visa Service
-</Button>
-  <input type="hidden" name="locale" value="es" />
-</form>
-<div style="display: flex; justify-content: center; margin-top: 1.5rem;">
-      <Image src={paymentLogos} alt="We accept Visa, Mastercard and AMEX" width={300} />
-    </div>
-
-<script is:inline>
-  document.addEventListener("DOMContentLoaded", () => {
-    const form = document.getElementById("waitlist-form");
-    const button = document.getElementById("waitlist-submit");
-
-    if (!form || !button) return;
-
-    button.addEventListener("click", async () => {
-      const formData = new FormData(form);
-
-      try {
-        const res = await fetch("/api/subscribe", {
-          method: "POST",
-          body: formData,
-        });
-
-        if (res.ok) {
-          alert("Thanks! Check your inbox.");
-          form.reset();
-        } else {
-          alert("Something went wrong.");
-        }
-      } catch (err) {
-        console.error(err);
-        alert("Network error.");
-      }
-    });
-  });
-</script>
+  <div style="display: flex; justify-content: center; margin-top: 1.5rem;">
+    <Image src={paymentLogos} alt="We accept Visa, Mastercard and AMEX" width={300} />
+  </div>
+</div>
 
       <Text tag="p" variant="textXS" class="text-base-400">
         
