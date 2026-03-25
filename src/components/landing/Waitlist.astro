@@ -2,6 +2,8 @@
 import Text from "@/components/fundations/elements/Text.astro";
 import Button from "@/components/fundations/elements/Button.astro";
 import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+import { Image } from 'astro:assets';
+import paymentLogos from '../../images/assets/tarjetas-aceptadas.png';
 ---
 
 <section id="waitlist" class="py-10">
@@ -11,7 +13,7 @@ import Wrapper from "@/components/fundations/containers/Wrapper.astro";
 
 
       <Text tag="h2" variant="displaySM">
-        Get the Madrid Landing Kit
+        Get Started - Book Your Visa Service
       </Text>
 
 
@@ -34,10 +36,13 @@ import Wrapper from "@/components/fundations/containers/Wrapper.astro";
   size="base"
   class="w-full"
 >
-  Get the checklist
+  Book Your Visa Service
 </Button>
   <input type="hidden" name="locale" value="es" />
 </form>
+<div style="display: flex; justify-content: center; margin-top: 1.5rem;">
+      <Image src={paymentLogos} alt="We accept Visa, Mastercard and AMEX" width={300} />
+    </div>
 
 <script is:inline>
   document.addEventListener("DOMContentLoaded", () => {
@@ -70,7 +75,7 @@ import Wrapper from "@/components/fundations/containers/Wrapper.astro";
 </script>
 
       <Text tag="p" variant="textXS" class="text-base-400">
-        No spam. Unsubscribe anytime.
+        
       </Text>
 
     </div>
