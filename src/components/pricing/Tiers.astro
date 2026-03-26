@@ -7,6 +7,7 @@ const pricingOptions = [
     id: "individuals",
     title: "Student Visa",
     monthly: "$495",
+    link: "https://buy.stripe.com/tu_link_de_495",
     //annual: "$15.00",
     description:
     "If you are applying from the consulate",
@@ -65,6 +66,7 @@ const pricingOptions = [
     id: "teams",
     title: "Auth. of Stay for Studies",
     monthly: "$355",
+    link: "https://buy.stripe.com/test_9B6fZbaFR1GQ8Yz2yy00001",
     //annual: "$459.00",
     description:
     "If you are already in Spain",
@@ -123,8 +125,10 @@ const pricingOptions = [
   id: "schools",
   title: "Student's Family Visa",
   monthly: "$335",
+  link: "https://buy.stripe.com/test_7sY6oBdS3gBKeiTc9800002",
   //annual: "$899.00",
   description: "From the consulate",
+
   button: {
     text: "Hire now",
     variant: "accent",
@@ -142,6 +146,7 @@ const pricingOptions = [
   id: "enterprise",
   title: "Extension of Stay for Studies",
   monthly: "$285",
+  link: "https://buy.stripe.com/test_aFa7sF8xJ85e5Mn1uu00003",
   //annual: "Custom",
   //description: "From the consulate",
   button: {
@@ -259,14 +264,14 @@ const pricingOptions = [
 
       <!-- CTA -->
       <div class="mt-auto pt-10">
-        <Button variant="accent" size="base">
-          Hire now
-        </Button>
-        <p class="mt-2 text-xs text-base-500">
-          * One-time fee. 21% VAT must be applied
-        </p>
-      </div>
-    </div>
-  ))}
+  <a href={tier.link} class="block w-full">
+    <Button 
+      variant="accent" 
+      size="base" 
+      class="w-full pointer-events-none"
+    >
+      Hire now
+    </Button>
+  </a>
 </div>
 
