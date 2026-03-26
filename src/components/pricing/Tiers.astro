@@ -7,7 +7,7 @@ const pricingOptions = [
     id: "individuals",
     title: "Student Visa",
     monthly: "$495",
-    link: "https://buy.stripe.com/tu_link_de_495",
+    link: "https://buy.stripe.com/test_5kQ5kx9BN1GQ1w71uu00004",
     //annual: "$15.00",
     description:
     "If you are applying from the consulate",
@@ -175,35 +175,37 @@ const pricingOptions = [
   ],
 },
 {
-  id: "schools",
-  title: "Schools",
-  monthly: "$999.00",
-  annual: "$899.00",
-  description: "For institutions managing multiple students.",
-  button: {
-    text: "Contact us",
-    variant: "muted",
+    id: "schools_info", // cambiado para ser único
+    title: "Schools",
+    monthly: "$999.00",
+    link: "#", // <--- AÑADIDO (aunque no se use)
+    annual: "$899.00",
+    description: "For institutions managing multiple students.",
+    button: {
+      text: "Contact us",
+      variant: "muted",
+    },
+    features: [
+      { title: "Student Management", text: "Centralized onboarding." },
+      { title: "Dedicated Support", text: "One point of contact." },
+    ],
   },
-  features: [
-    { title: "Student Management", text: "Centralized onboarding." },
-    { title: "Dedicated Support", text: "One point of contact." },
-  ],
-},
-{
-  id: "enterprise",
-  title: "Enterprise",
-  monthly: "Custom",
-  annual: "Custom",
-  description: "For large organizations with custom needs.",
-  button: {
-    text: "Book a call",
-    variant: "accent",
+  {
+    id: "enterprise_info", // cambiado para ser único
+    title: "Enterprise",
+    monthly: "Custom",
+    link: "#", // <--- AÑADIDO (aunque no se use)
+    annual: "Custom",
+    description: "For large organizations with custom needs.",
+    button: {
+      text: "Book a call",
+      variant: "accent",
+    },
+    features: [
+      { title: "Custom Setup", text: "Tailored workflows." },
+      { title: "SLA Support", text: "Guaranteed response times." },
+    ],
   },
-  features: [
-    { title: "Custom Setup", text: "Tailored workflows." },
-    { title: "SLA Support", text: "Guaranteed response times." },
-  ],
-},
 
 ];
 ---
@@ -274,4 +276,6 @@ const pricingOptions = [
     </Button>
   </a>
 </div>
-
+</div>
+))}
+</div>
